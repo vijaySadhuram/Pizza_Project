@@ -1,0 +1,181 @@
+/* Reset some default styles */
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+/* Main app container */
+.app {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background-color: #f8f8f8;
+  padding: 40px;
+}
+
+/* Selector and preview container */
+.selector,
+.preview {
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 0 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Title styles */
+h2 {
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+/* Pizza base options */
+.pizza-base {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.pizza-base:hover {
+  background-color: #f5f5f5;
+}
+
+.pizza-base.dragging {
+  opacity: 0.5;
+}
+
+/* Ingredients list */
+.ingredient-item {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  margin: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s;
+}
+
+.ingredient-item:hover {
+  background-color: #f5f5f5;
+}
+
+.ingredient-item.dragging {
+  opacity: 0.5;
+}
+
+.ingredient-item.selected {
+  background-color: #f0e68c;
+  font-weight: bold;
+}
+
+/* Pizza preview */
+.pizza {
+  display: flex;
+  align-items: flex-start;
+}
+
+.empty-circle {
+  width: 200px;
+  height: 200px;
+  border: 2px dashed #ccc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+.empty-circle.hovered {
+  background-color: #e1f5fe;
+}
+
+.pizza-image {
+  margin-left: 20px;
+}
+
+.circle {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.pizza-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ingredient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.ingredient-label {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .selector,
+  .preview {
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .pizza {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pizza-image {
+    margin-top: 20px;
+    margin-left: 0;
+  }
+  
+  .empty-circle {
+    width: 150px;
+    height: 150px;
+    font-size: 14px;
+  }
+
+  .circle {
+    width: 150px;
+    height: 150px;
+  }
+
+  .ingredient-overlay {
+    font-size: 0.8rem;
+  }
+}
